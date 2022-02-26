@@ -1,0 +1,65 @@
+/*In number theory, a narcissistic number or “Armstrong number” is a number where
+ in a given number base b is a number that is the sum of its own digits each raised 
+ to the power of the number of digits. 
+ This definition is way more complicated than it actually is. */
+using System;
+
+namespace ArmstrongNumber
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            int originalNumber; //stores input number in the variable originalNumber
+
+            int remainder; //stores single digit of the given number
+
+            int sum = 0; //stores sum of digits of the given number.
+
+            /* Value of variable originalNumber would change in the below while loop 
+            so i am storing it in another variable to compare the results at the end of program */
+            int tempNumber; //temporary copy of the given number
+
+            Console.Write("Enter the Number : "); //print message line
+
+            originalNumber = int.Parse(Console.ReadLine()); //int.Parse tries to convert a string to an integer value
+
+            tempNumber = originalNumber;//Copy original number into tempNumber
+
+            /*First of all, i need to know how many digits the number has
+             to know that, i store a new variable called powerNumber*/
+            int powernumber = 0;
+
+            while (originalNumber%10 > 0)
+            {
+                powernumber++;
+                originalNumber = originalNumber / 10;
+            }
+
+            originalNumber = tempNumber; //i need to restore the value of originalNumber using tempNumber
+
+            //Main Armstrong Logic
+            while (originalNumber > 0) //i checked if the number is valid
+            {
+                remainder = originalNumber % 10; //remainder = the last digit of the number
+                /*Math.Pow(,) function in .NET raises a double base to a double exponent and returns a double result. 
+                 Since the sum is an int type variable, i have to cast the pow to int using (int)*/
+                double pow = Math.Pow(remainder, powernumber);
+                sum = (int)(sum + pow);
+                originalNumber = originalNumber / 10; //originalNumber = originalNumber without the last digit that i used in remainder
+            }
+
+            if (tempNumber == sum) // compare the value of tempNumber and a sum variable.
+            {
+                //if the value of the tempNumber and the sum variable are same then it is an Armstrong Number
+                Console.WriteLine($"{tempNumber} is an Armstrong Number :D ");
+            }
+            else
+            {
+                //if the value of the tempNumber and the sum variable are same then it is not an Armstrong Number
+                Console.WriteLine($"{tempNumber} is not an Armstrong Number :C ");
+            }
+            Console.Write("\n");
+        }
+    }
+}
