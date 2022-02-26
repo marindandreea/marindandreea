@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @marindandreea
 - Hardworking university student with a motivated attitude and a variety of powerful skills. Adept in various social media platforms and programming languages.
 - I’m currently learning C/C++, C#, Java, Python 
-- 📫 How to reach me: marindandreea@uahoo.com
+- 📫 How to reach me: marindandreea@yahoo.com
 - https://www.linkedin.com/in/andreea-daniela-marin-01624b1a0/
 
 <!---
