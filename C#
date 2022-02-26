@@ -1,0 +1,23 @@
+//First of all, i am using Visual Studio 2019 on an Windows PC (there are a couple of differences on Mac)
+using System; //i want to use the namespace called System
+//namespace System has a bunch of different classes,
+//include a lot of details like "what a Console is?" etc
+
+namespace paw1 //i am creating my own namespace called paw1
+{
+    class Program //by default
+    {
+        //entry point of my program
+        static void Main(string[] args)
+        {
+            //compared to C++, Concole.WriteLine(); is equivalent to cout<< <<endl;
+            Console.WriteLine("Hello World!");
+            Console.WriteLine("This is my first program in C# :D");
+            /*if you need to run my .exe (without this script in Visual Studio)
+            the terminal will close straight away*/
+            //to manage that, i choose to read "nothing", using Console.Read();
+            Console.Read();
+            //now the .exe will close when i press one key (doesn't matter which key) 
+        }
+    }
+}
