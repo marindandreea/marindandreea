@@ -1,0 +1,90 @@
+/*in urmatorul program am creat un joc de tipul celor de casino
+jucatorul isi seteaza de la inceput suma totala de joc si dupa "mana" de meci
+jocul este unul de ghicit numarul cuprins intre 1 si 10
+daca jucatorul ghiceste, isi tripleaza mana,
+respectiv pierde
+*/
+#include <iostream>
+#include <string>
+#include <cstdlib> // biblioteca necesara pentru a genera numere aleatoare
+#include <ctime>
+using namespace std;
+void reguli()
+{
+    system("cls"); //stergerea consolei dupa fiecare etapa de joc
+    cout << "+======GHICESTE NUMARUL======" << endl;
+    cout << "--> Ghiceste un numar de la 1 la 10 <--" << endl;
+    cout << "** Daca ai ghicit numarul, iti triplezi suma bagata in joc **" << endl;
+    cout << "    Daca nu, ei bine, pierzi suma pariului   " << endl;
+}
+int main()
+{
+    string numeJucator;
+    int buzunar; 
+    int sumaPariu;
+    int ghicire;
+    int numar; 
+    char confirmare;
+    srand(time(0)); // functie pentru a afisa numere generate aleatoriu
+    cout << "=========B I N E   A I   V E N I T==========" << endl;
+    cout << "=====LOCUL IN CARE POTI DEVENI MILIONAR=====" << endl << endl << endl;
+    cout << "Scrie numele de utilizator : ";
+    getline(cin, numeJucator);
+    cout << endl << endl;
+    cout << "Scrie soldul de care dispuneti: ";
+    cin >> buzunar;
+    do
+    {
+        system("cls"); //stergere consola
+        reguli();
+        cout << endl << "Dispuneti de un sold de " << buzunar << "lei"<<endl;
+        do
+        {
+            cout << "Bine ai venit, " << numeJucator << "!" << endl;
+            cout<< "Introduceti suma de joc dorita : ";
+            cin >> sumaPariu;
+            if (sumaPariu > buzunar)
+                cout << "Eroare! Verifica daca ai destui bani de pariat!" << endl;
+                cout << "Introduceti o suma valida pentru pariu aici: ";
+        } while (sumaPariu > buzunar);
+        
+        //sa se valideze alegerile jucatorului
+        do
+        {
+            cout << "Scrie un numar de la 1 la 10 :";
+            cin >> ghicire;
+            if (ghicire <= 0 || ghicire > 10)
+                cout << "Numerele trebuie sa fie intre 1 si 10" << endl;
+                cout << endl;
+        } while (ghicire <= 0 || ghicire > 10);
+        //functia rand() apeleaza un numar aleatoriu
+        //pentru a returna un numar de la 1 la 10, se incrementeaza cu 1 ultima cifra a numarului
+        numar = rand() % 10 + 1;
+        if (numar == ghicire)
+        {
+            cout << "Esti smecher! Tocmai ai castigat suma de " << sumaPariu * 3 << " lei";
+            buzunar = buzunar + sumaPariu * 3;
+        }
+        else
+        {
+            cout << "Of, ai pierdut! :C " << endl;
+            cout<<"Nu te intrista, ai pierdut doar "<< sumaPariu << " lei"<<endl;
+            buzunar = buzunar - sumaPariu;
+        }
+        cout << "****Numarul castigator era : " << numar << "*****" << endl;
+        cout << numeJucator << ", soldul tau curent este in valoare de " << buzunar << " lei" << endl;
+        if (buzunar == 0)
+        {
+            cout << "Nu mai ai bani :C "<<endl;
+            cout << "Te mai asteptam! \1" << endl << endl;
+            break;
+        }
+        cout << endl << endl;
+        cout << " Vrei sa te joci din nou (Apasa 1)? ";
+        cin >> confirmare;
+    } while (confirmare == '1');
+
+    cout << endl << endl;
+    cout << " Sold total curent = " << buzunar << endl << endl;
+    return 0;
+}
