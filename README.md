@@ -5,7 +5,6 @@
 - 
 - 📫 How to reach me: marindandreea@yahoo.com
 - https://www.linkedin.com/in/andreea-daniela-marin-01624b1a0/
-- 
 
 <!---
 marindandreea/marindandreea is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
